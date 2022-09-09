@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Environment/Platform.cs" type="Script" id=1]
+[ext_resource path="res://Assets/miscellaneous sprites/stone.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 16, 4.5 )
+
+[node name="Platform" type="Node2D" groups=["WallJumpable"]]
+position = Vector2( 554, 116 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 1, -0.5 )
+shape = SubResource( 37 )
+one_way_collision = true
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 1, 0 )
+scale = Vector2( 2, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="KinematicBody2D"]
+
+[node name="MovementLocations" type="Node2D" parent="."]
+
+[node name="Location1" type="Position2D" parent="MovementLocations"]
+
+[node name="Location2" type="Position2D" parent="MovementLocations"]
+position = Vector2( 47, 30 )
+
+[node name="Location3" type="Position2D" parent="MovementLocations"]
+position = Vector2( 22, 75 )
+
+[node name="Location4" type="Position2D" parent="MovementLocations"]
+position = Vector2( -26, 75 )
+
+[node name="Location5" type="Position2D" parent="MovementLocations"]
+position = Vector2( -45, 30 )
+
+[connection signal="tween_completed" from="KinematicBody2D/Tween" to="." method="_on_Tween_tween_completed"]

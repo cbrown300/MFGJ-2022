@@ -1,0 +1,44 @@
+Things to add:
+Movement:
+ - Bat Form (flight) - not doing
+ - 4Bat Shift (dash) - basically done
+ - 3Hellfire (fireball) - basically done
+ - 1Bat Wing (multi jump)
+ - 2Bat Screech (stun)
+ - Claws
+ - Undying
+Level 0: Pit O Death
+ - Spikes - basically done
+ - Moving Platforms - basically done
+ - Key and door - basically done
+ - Narrow hallways
+ - Bat enemy
+ - Slime enemy? - basically done
+Level 1: Warehouse
+ - Boxes
+ - Falling Platforms that dont respawn on death
+ - Wide open
+ - Basic thug enemies (melee and range)
+ - Cutscene Lose multi jump
+Level 2: Vegas
+ - Platform enemy you can stun
+ - Stripper enemies
+ - Slot machines shooting turret enemies
+ - Cutscene lose bat stun
+Level 3: Russia
+ - Snow
+ - Ice physics
+ - Ice blocks to melt
+ - Soldier throwing molotovs
+ - Soldier shooting
+ - Cutscene lose hellfire
+Level 4: Japan
+ - Wide gaps and falling Platforms
+ - Springy Platforms
+ - Ninjas with swords and shuriken/throwing stars
+ - Cutscene lose dash
+Boss Level: Transylvania Mansion
+ - zombie enemy
+ - vampire enemy
+ - Boss
+ - Cutscene become human

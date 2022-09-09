@@ -1,0 +1,9 @@
+/.import
+/.mono
+/.vs
+/.vscode
+nuget.exe
+export.cfg
+export_presets.cfg
+*.translation
+data_*/

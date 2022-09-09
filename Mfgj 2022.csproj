@@ -1,0 +1,10 @@
+<Project Sdk="Godot.NET.Sdk/3.3.0">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Mfgj2022</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="jsonknowntypes" Version="0.5.5" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.1" />
+  </ItemGroup>
+</Project>

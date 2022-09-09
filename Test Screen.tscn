@@ -1,0 +1,593 @@
+[gd_scene load_steps=75 format=2]
+
+[ext_resource path="res://Enemy/GruntEnemy.cs" type="Script" id=1]
+[ext_resource path="res://Environment/SpikeTrap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/tiles and background_foreground (new)/tileset.png" type="Texture" id=3]
+[ext_resource path="res://Managers/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack.png" type="Texture" id=5]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-idle.png" type="Texture" id=6]
+[ext_resource path="res://Enemy/GruntProjectile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack7.png" type="Texture" id=8]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack4.png" type="Texture" id=10]
+[ext_resource path="res://Managers/GameManager.cs" type="Script" id=11]
+[ext_resource path="res://Utilities/RespawnPoint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack5.png" type="Texture" id=13]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack6.png" type="Texture" id=14]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/enemies sprites/xeno-grunt/xeno-grunt-range-attack/xeno-grunt-range-attack3.png" type="Texture" id=16]
+[ext_resource path="res://Managers/DialogManager.cs" type="Script" id=17]
+[ext_resource path="res://Managers/InterfaceManager.cs" type="Script" id=18]
+[ext_resource path="res://Interface/DialogSelection.tscn" type="PackedScene" id=19]
+[ext_resource path="res://NPC/NPC.cs" type="Script" id=20]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-6.png" type="Texture" id=22]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-7.png" type="Texture" id=23]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-2.png" type="Texture" id=24]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-8.png" type="Texture" id=25]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-3.png" type="Texture" id=26]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-5.png" type="Texture" id=27]
+[ext_resource path="res://Assets/enemies sprites/skeleton/skeleton-4.png" type="Texture" id=28]
+[ext_resource path="res://Environment/Platform.cs" type="Script" id=29]
+[ext_resource path="res://Assets/miscellaneous sprites/stone.png" type="Texture" id=30]
+[ext_resource path="res://Enemy/SlimeEnemy.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Items/MagicPotion.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Items/Key.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Environment/Door.tscn" type="PackedScene" id=34]
+[ext_resource path="res://QuestElement.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Utilities/RespawnPoint.cs" type="Script" id=36]
+[ext_resource path="res://QuestInterfaceManager.cs" type="Script" id=37]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "tileset.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tileset.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tileset.png 2"
+2/texture = ExtResource( 3 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 32, 0, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "tileset.png 3"
+3/texture = ExtResource( 3 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 16, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 4 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "tileset.png 4"
+4/texture = ExtResource( 3 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 32, 16, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 5 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 128, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 26, 38 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 26, 40 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 26, 40 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 256, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 384, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 512, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 640, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 768, 84, 128, 42 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 44, 38 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 52, 38 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 28, 38 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "ShootingStart",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "Shooting",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "ShootingEnd",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=17]
+radius = 97.0052
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 5, 7.5 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 22 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 23 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 44, 52 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 16, 4.5 )
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource( 11 )
+RespawnPoint = ExtResource( 12 )
+
+[node name="TileMap" type="TileMap" parent="." groups=["WallJumpable"]]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 43, 1610612736, 0, 44, 1610612736, 0, 45, 1610612736, 0, 46, 1610612736, 0, 47, 1610612736, 0, 48, 1610612736, 0, 49, 1610612736, 0, 50, 1610612736, 0, 51, 1610612736, 0, 52, 1610612736, 0, 53, 1610612736, 0, 54, 1610612736, 0, 55, 1610612736, 0, 56, 1610612736, 0, 57, 1610612736, 0, 58, 1610612736, 0, 59, 1610612736, 0, 60, 1610612736, 0, 262187, 1, 0, 262188, 0, 0, 262189, 0, 0, 262190, 0, 0, 262191, 0, 0, 262192, 0, 0, 262193, 0, 0, 262194, 0, 0, 262195, 0, 0, 262196, 0, 0, 262197, 0, 0, 262198, 0, 0, 262199, 0, 0, 262200, 0, 0, 262201, 0, 0, 262202, 0, 0, 262203, 0, 0, 327685, 4, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 2, 0, 327701, 1, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 2, 0, 327723, 3, 0, 393221, 4, 0, 393231, 4, 0, 393237, 3, 0, 393242, 4, 0, 393259, 3, 0, 458757, 4, 0, 458767, 4, 0, 458773, 3, 0, 458778, 4, 0, 458795, 3, 0, 524293, 4, 0, 524303, 4, 0, 524309, 3, 0, 524314, 4, 0, 524331, 3, 0, 589829, 4, 0, 589839, 4, 0, 589845, 3, 0, 589850, 4, 0, 589867, 3, 0, 655365, 4, 0, 655375, 4, 0, 655381, 3, 0, 655386, 4, 0, 655403, 3, 0, 720901, 4, 0, 720917, 3, 0, 720922, 4, 0, 720939, 3, 0, 786437, 4, 0, 786453, 3, 0, 786458, 4, 0, 786475, 3, 0, 851973, 4, 0, 851988, 1, 0, 851994, 4, 0, 852011, 3, 0, 917509, 4, 0, 917524, 3, 0, 917530, 4, 0, 917547, 3, 0, 983045, 4, 0, 983054, 1, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983066, 4, 0, 983083, 3, 0, 1048581, 4, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048602, 4, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, -1610612735, 0, 1048619, 3, 0, 1114142, 0, 0, 1114143, 0, 0, 1114144, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0, 1114149, 0, 0, 1114150, 0, 0, 1114151, 0, 0, 1114152, 0, 0, 1114153, 0, 0, 1114154, 0, 0, 1114155, 3, 0 )
+
+[node name="SpikeTrap" parent="." instance=ExtResource( 2 )]
+
+[node name="RespawnPoint" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 36 )
+
+[node name="GruntEnemy" type="Node2D" parent="."]
+position = Vector2( 407, 66 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+Projectile = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="GruntEnemy"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 16 )
+animation = "Idle"
+
+[node name="Detection Radius" type="Area2D" parent="GruntEnemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GruntEnemy/Detection Radius"]
+shape = SubResource( 17 )
+
+[node name="ProjectileSpawn" type="Position2D" parent="GruntEnemy"]
+position = Vector2( 4, 0 )
+
+[node name="InterfaceManager" type="CanvasLayer" parent="."]
+script = ExtResource( 18 )
+
+[node name="DialogManager" type="Control" parent="InterfaceManager"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -1.0
+margin_right = 15.0
+margin_bottom = -1.0
+script = ExtResource( 17 )
+DialogSelectableObject = ExtResource( 19 )
+
+[node name="Popup" type="Popup" parent="InterfaceManager/DialogManager"]
+anchor_top = 0.797
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.200043
+
+[node name="ColorRect" type="ColorRect" parent="InterfaceManager/DialogManager/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NPCName" type="Label" parent="InterfaceManager/DialogManager/Popup"]
+anchor_left = 0.01
+anchor_top = 0.062
+anchor_right = 0.978
+anchor_bottom = 0.216
+margin_left = -0.240001
+margin_top = -0.0280008
+margin_right = -1.47205
+margin_bottom = 0.0960007
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Test NPC Name"
+
+[node name="DialogText" type="RichTextLabel" parent="InterfaceManager/DialogManager/Popup"]
+anchor_top = 0.222
+anchor_right = 0.979
+anchor_bottom = 0.732
+margin_left = 10.0
+margin_top = -0.0680046
+margin_right = -2.49603
+margin_bottom = -0.00801086
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Test text"
+scroll_following = true
+
+[node name="TextOptions" type="HBoxContainer" parent="InterfaceManager/DialogManager/Popup"]
+anchor_left = 0.01
+anchor_top = 0.753
+anchor_right = 0.977
+anchor_bottom = 1.0
+margin_left = -0.240001
+margin_top = -0.0820007
+margin_right = -0.448059
+margin_bottom = -10.0
+alignment = 1
+
+[node name="MainInterface" type="Control" parent="InterfaceManager"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
+
+[node name="HealthBar" type="ProgressBar" parent="InterfaceManager/MainInterface"]
+anchor_left = 0.812
+anchor_right = 1.008
+anchor_bottom = 0.033
+margin_left = -18.488
+margin_top = 6.0
+margin_right = -19.192
+margin_bottom = 6.2
+
+[node name="ManaBar" type="ProgressBar" parent="InterfaceManager/MainInterface"]
+anchor_left = 0.812
+anchor_top = 0.05
+anchor_right = 1.008
+anchor_bottom = 0.083
+margin_left = -18.488
+margin_top = 6.0
+margin_right = -19.192
+margin_bottom = 6.2
+
+[node name="MagicSpellPanel" type="Panel" parent="InterfaceManager/MainInterface"]
+anchor_right = 0.072
+anchor_bottom = 0.123
+margin_right = 0.271996
+margin_bottom = 0.199997
+
+[node name="MagicSpellTexture" type="TextureRect" parent="InterfaceManager/MainInterface/MagicSpellPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="QuestInterfaceManager" type="Control" parent="InterfaceManager"]
+anchor_left = 0.795
+anchor_top = 0.142
+anchor_right = 1.0
+anchor_bottom = 0.743
+margin_left = -0.0800171
+margin_top = -0.200005
+margin_bottom = 0.199982
+script = ExtResource( 37 )
+QuestInterfaceElement = ExtResource( 35 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InterfaceManager/QuestInterfaceManager"]
+anchor_right = 1.0
+anchor_bottom = 0.055
+margin_bottom = 0.145
+text = "Quests:"
+
+[node name="QuestList" type="VBoxContainer" parent="InterfaceManager/QuestInterfaceManager"]
+anchor_top = 0.055
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.145
+margin_bottom = 3.05176e-05
+
+[node name="NPC" type="KinematicBody2D" parent="."]
+position = Vector2( 109, 69 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+npcName = "Skelly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2( 0, 2.5 )
+shape = SubResource( 25 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC"]
+scale = Vector2( 0.386364, 0.386364 )
+frames = SubResource( 36 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="NPC2" type="KinematicBody2D" parent="."]
+position = Vector2( 204, 243 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+npcName = "Skelly2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2"]
+position = Vector2( 0, 2.5 )
+shape = SubResource( 25 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="NPC2"]
+scale = Vector2( 0.386364, 0.386364 )
+frames = SubResource( 36 )
+animation = "Idle"
+playing = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="Platform" type="Node2D" parent="." groups=["WallJumpable"]]
+position = Vector2( 554, 116 )
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/KinematicBody2D"]
+position = Vector2( 1, -0.5 )
+shape = SubResource( 37 )
+one_way_collision = true
+
+[node name="Sprite" type="Sprite" parent="Platform/KinematicBody2D"]
+position = Vector2( 1, 0 )
+scale = Vector2( 2, 0.5 )
+texture = ExtResource( 30 )
+
+[node name="Tween" type="Tween" parent="Platform/KinematicBody2D"]
+
+[node name="MovementLocations" type="Node2D" parent="Platform"]
+
+[node name="Location1" type="Position2D" parent="Platform/MovementLocations"]
+
+[node name="Location2" type="Position2D" parent="Platform/MovementLocations"]
+position = Vector2( 47, 30 )
+
+[node name="Location3" type="Position2D" parent="Platform/MovementLocations"]
+position = Vector2( 22, 75 )
+
+[node name="Location4" type="Position2D" parent="Platform/MovementLocations"]
+position = Vector2( -26, 75 )
+
+[node name="Location5" type="Position2D" parent="Platform/MovementLocations"]
+position = Vector2( -45, 30 )
+
+[node name="Platform2" type="Node2D" parent="." groups=["WallJumpable"]]
+position = Vector2( 163, 135 )
+script = ExtResource( 29 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Platform2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/KinematicBody2D"]
+position = Vector2( 1, -0.5 )
+shape = SubResource( 37 )
+one_way_collision = true
+
+[node name="Sprite" type="Sprite" parent="Platform2/KinematicBody2D"]
+position = Vector2( 1, 0 )
+scale = Vector2( 2, 0.5 )
+texture = ExtResource( 30 )
+
+[node name="Tween" type="Tween" parent="Platform2/KinematicBody2D"]
+
+[node name="MovementLocations" type="Node2D" parent="Platform2"]
+
+[node name="Location1" type="Position2D" parent="Platform2/MovementLocations"]
+
+[node name="Location2" type="Position2D" parent="Platform2/MovementLocations"]
+position = Vector2( 47, 71 )
+
+[node name="Location3" type="Position2D" parent="Platform2/MovementLocations"]
+position = Vector2( -48, 71 )
+
+[node name="SlimeEnemy" parent="." instance=ExtResource( 31 )]
+position = Vector2( 296, 225 )
+
+[node name="MagicPotion" parent="." instance=ExtResource( 32 )]
+
+[node name="Key" parent="." instance=ExtResource( 33 )]
+DoorToOpen = "1"
+
+[node name="Door" parent="." instance=ExtResource( 34 )]
+position = Vector2( 820, 74 )
+z_index = -1
+DoorKey = "1"
+
+[connection signal="animation_finished" from="GruntEnemy/AnimatedSprite" to="GruntEnemy" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="GruntEnemy/Detection Radius" to="GruntEnemy" method="_on_Detection_Radius_body_entered"]
+[connection signal="body_exited" from="GruntEnemy/Detection Radius" to="GruntEnemy" method="_on_Detection_Radius_body_exited"]
+[connection signal="tween_completed" from="Platform/KinematicBody2D/Tween" to="Platform" method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Platform2/KinematicBody2D/Tween" to="Platform2" method="_on_Tween_tween_completed"]
